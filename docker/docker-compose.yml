@@ -14,7 +14,7 @@ services:
       - "80"
     volumes: 
       - /data
-      - ./src:/home/judge/src
+      - ../src:/home/judge/src
     links:
       - db
     environment:

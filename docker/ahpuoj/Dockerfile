@@ -3,6 +3,7 @@ FROM ubuntu:18.04
 #FROM debian:jessie-slim
 
 COPY sources.list /etc/apt/sources.list
+VOLUME 
 
 RUN set -ex \
 	&& export DEBIAN_FRONTEND=noninteractive \
@@ -36,8 +37,6 @@ RUN set -ex \
 RUN set -ex \
 	&& /usr/sbin/useradd -m -u 1536 judge \
 	&& cd / \
-	&& git clone https://github.com/jiezi19971225/ahpuoj-docker.git \	
-	&& mv /ahpuoj-docker /home/judge/src
 
 RUN set -ex \
 	&& USER=`cat /etc/mysql/debian.cnf |grep user|head -1|awk  '{print $3}'` \
@@ -45,16 +44,9 @@ RUN set -ex \
 	&& CPU=`grep "cpu cores" /proc/cpuinfo |head -1|awk '{print $4}'`   \	
 	&& cd /home/judge/                  \
 	&& mkdir etc data log   \
-	&& cp src/install/java0.policy  /home/judge/etc   \
-	&& cp src/install/judge.conf  /home/judge/etc   \
-	&& cp src/install/db_info.inc.php  src/web/include/db_info.inc.php  \
-	&& cp src/install/config.txt  src/web/admin/config.txt \
-	&& cp src/install/msg.txt  src/web/admin/msg.txt  \
-	&& chmod 777 src/web/admin/config.txt src/web/admin/msg.txt \
 	&& mkdir run0 run1 run2 run3   \
 	&& chown judge run0 run1 run2 run3   \
 	&& sed -i "s/OJ_RUNNING=1/OJ_RUNNING=$CPU/g" etc/judge.conf   \
-	&& mkdir src/web/upload \
 	&& chown www-data src/web/upload data   \
 	&& sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    80m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf   \
 	&& sed -i "s:root /usr/share/nginx/html;:root /home/judge/src/web;:g" /etc/nginx/sites-enabled/default   \
@@ -71,11 +63,9 @@ RUN set -ex \
 
 RUN set -ex \
 	&& cd /home/judge/src/core/judged \
-    && make \
     && chmod +x judged \
     && cp judged /usr/bin \
     && cd ../judge_client \
-    && make \
     && chmod +x judge_client \
     && cp judge_client /usr/bin \
 	&& cd /home/judge/ 
