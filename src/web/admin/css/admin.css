@@ -1,0 +1,82 @@
+.top-space {
+    margin-top: 52px;
+}
+
+body {
+    background-image: url("../../image/background.jpg");
+    opacity: 0.95;
+}
+
+iframe.menu-list {
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+
+iframe.main-content {
+    height: 100%;
+    width: 85%;
+}
+
+.admin-menu-bar>.menu-item>a {
+    color: #cccccc;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+.admin-menu-bar>.menu-item>a:hover {
+    background: #cccccc;
+    color: #003366;
+}
+
+.admin-menu-bar>li.menu-item.active>a,
+.admin-menu-bar>li.menu-item.active>a:focus,
+.admin-menu-bar>li.menu-item.active>a:hover {
+    background: #cccccc;
+    color: #003366;
+}
+
+.sub-page-title {
+    margin: 20px;
+    border-left: 3px solid #0099CC;
+    border-bottom: 2px solid #0099CC;
+}
+
+.admin-search-bar {
+    margin-bottom: 20px;
+}
+
+.admin-layer-form {
+    margin: 20px;
+}
+
+.redirect-to-login {
+    width: 400px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    padding-top: 200px;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.toprow {
+    font-weight: bold;
+}
+
+.table,
+.table-striped td {
+    word-break: break-all;
+}
+
+.layui-body {
+    overflow: auto !important;
+}

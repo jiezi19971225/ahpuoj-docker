@@ -1,0 +1,35 @@
+version: "3.2"
+
+services:
+  ahpuoj:
+    # image: ahpuoj
+    build: ./ahpuoj
+    tty: true
+    entrypoint: /usr/local/bin/docker-entrypoint.sh
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    expose:
+      - "80"
+    volumes: 
+      - /data
+      - ./src:/home/judge/src
+    links:
+      - db
+    environment:
+      MYSQL_DATABASE: jol
+      MYSQL_USER: ahpuoj
+      MYSQL_PASSWORD: jsj123zxc
+  db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "33060:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: jol
+      MYSQL_USER: ahpuoj
+      MYSQL_PASSWORD: jsj123zxc

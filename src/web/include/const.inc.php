@@ -1,0 +1,41 @@
+<?php
+$MSG_PD = "等待";
+$MSG_PR = "等待重判";
+$MSG_CI = "编译中";
+$MSG_RJ = "运行并评判";
+$MSG_AC = "正确";
+$MSG_PE = "格式错误";
+$MSG_WA = "答案错误";
+$MSG_TLE = "时间超限";
+$MSG_MLE = "内存超限";
+$MSG_OLE = "输出超限";
+$MSG_RE = "运行错误";
+$MSG_CE = "编译错误";
+$MSG_CO = "编译成功";
+$MSG_TR = "测试运行";
+
+$MSG_Pending = "等待";
+$MSG_Pending_Rejudging = "等待重判";
+$MSG_Compiling = "编译中";
+$MSG_Running_Judging = "运行并评判";
+$MSG_Accepted = "正确";
+$MSG_Presentation_Error = "格式错误";
+$MSG_Wrong_Answer = "答案错误";
+$MSG_Time_Limit_Exceed = "时间超限";
+$MSG_Memory_Limit_Exceed = "内存超限";
+$MSG_Output_Limit_Exceed = "输出超限";
+$MSG_Runtime_Error = "运行错误";
+$MSG_Compile_Error = "编译错误";
+$MSG_Runtime_Click = "运行错误(点击看详细)";
+$MSG_Compile_Click = "编译错误(点击看详细)";
+$MSG_Compile_OK = "编译成功";
+$MSG_TEST_RUN = "测试运行";
+
+$judge_result = array($MSG_Pending, $MSG_Pending_Rejudging, $MSG_Compiling, $MSG_Running_Judging, $MSG_Accepted, $MSG_Presentation_Error, $MSG_Wrong_Answer, $MSG_Time_Limit_Exceed, $MSG_Memory_Limit_Exceed, $MSG_Output_Limit_Exceed, $MSG_Runtime_Error, $MSG_Compile_Error, $MSG_Compile_OK, $MSG_TEST_RUN);
+$jresult = array($MSG_PD, $MSG_PR, $MSG_CI, $MSG_RJ, $MSG_AC, $MSG_PE, $MSG_WA, $MSG_TLE, $MSG_MLE, $MSG_OLE, $MSG_RE, $MSG_CE, $MSG_CO, $MSG_TR);
+$judge_color = array("gray", "gray", "orange", "orange", "green", "red", "red", "red", "red", "red", "red", "navy ", "navy");
+$language_name = array("C", "C++", "Pascal", "Java", "Ruby", "Bash", "Python", "PHP", "Perl", "C#", "Obj-C", "FreeBasic", "Scheme", "Clang", "Clang++", "Lua", "JavaScript", "Go", "Other Language");
+$language_ext = array("c", "cc", "pas", "java", "rb", "sh", "py", "php", "pl", "cs", "m", "bas", "scm", "c", "cc", "lua", "js", "go");
+$PID = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+$ball_color = array('#66cccc', 'red', 'green', 'pink', 'yellow', 'violet', 'magenta', 'maroon', 'olive', 'chocolate');
+$ball_name = array('蒂芙妮蓝', '红', 'green', 'pink', 'yellow', 'violet', 'magenta', 'maroon', 'olive', 'chocolate');
