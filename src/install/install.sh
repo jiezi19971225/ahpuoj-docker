@@ -27,7 +27,7 @@ touch /home/judge/src/web/admin/msg.txt
 chmod 775 -R /home/judge/data
 chmod 770 -R /home/judge/src/web/admin/config.txt
 chmod 770 -R /home/judge/src/web/admin/msg.txt
-chmod 770 -R /home/judge/src/web/upload
+chmod 775 -R /home/judge/src/web/upload
 
 chgrp -R www-data /home/judge/data
 chgrp -R www-data /home/judge/src/web/admin/config.txt
