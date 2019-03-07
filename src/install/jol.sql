@@ -29,7 +29,7 @@ CREATE TABLE `balloon`  (
   `pid` int(11) NOT NULL,
   `status` smallint(6) NOT NULL DEFAULT 0,
   PRIMARY KEY (`balloon_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for compileinfo
@@ -56,7 +56,7 @@ CREATE TABLE `contest`  (
   `langmask` int(11) NOT NULL DEFAULT 0 COMMENT 'bits for LANG to mask',
   `password` char(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`contest_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1003 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1000 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for contest_problem
@@ -117,7 +117,7 @@ CREATE TABLE `mail`  (
   `defunct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
   PRIMARY KEY (`mail_id`) USING BTREE,
   INDEX `uid`(`to_user`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1013 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1000 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for news
@@ -132,7 +132,7 @@ CREATE TABLE `news`  (
   `importance` tinyint(4) NOT NULL DEFAULT 0,
   `defunct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
   PRIMARY KEY (`news_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1006 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for online
@@ -163,7 +163,7 @@ CREATE TABLE `printer`  (
   `printer` char(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'LOCAL',
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`printer_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for privilege
@@ -198,7 +198,7 @@ CREATE TABLE `problem`  (
   `submit` int(11) NULL DEFAULT 0,
   `solved` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`problem_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1215 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1000 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for reply
@@ -214,7 +214,7 @@ CREATE TABLE `reply`  (
   `ip` varchar(46) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`rid`) USING BTREE,
   INDEX `author_id`(`author_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for runtimeinfo
@@ -237,7 +237,7 @@ CREATE TABLE `series`  (
   `defunct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`series_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1007 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1000 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sim
@@ -277,7 +277,7 @@ CREATE TABLE `solution`  (
   INDEX `pid`(`problem_id`) USING BTREE,
   INDEX `res`(`result`) USING BTREE,
   INDEX `cid`(`contest_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1003 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM AUTO_INCREMENT = 1000 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for source_code
@@ -320,7 +320,7 @@ CREATE TABLE `teams`  (
   `defunct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
   PRIMARY KEY (`team_id`) USING BTREE,
   UNIQUE INDEX `name_UNIQUE`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1010 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for topic
@@ -336,7 +336,7 @@ CREATE TABLE `topic`  (
   `author_id` varchar(48) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`tid`) USING BTREE,
   INDEX `cid`(`cid`, `pid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for users

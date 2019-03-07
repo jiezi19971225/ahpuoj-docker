@@ -1,4 +1,8 @@
 #!/bin/bash
+mkdir /core
+cp -r ./*  /core
+cd /core
+pwd
 cd judged
 make
 chmod +x judged
@@ -20,6 +24,8 @@ cp sim_lisp.exe /usr/bin/sim_scm
 cd ..
 cp sim.sh /usr/bin
 chmod +x /usr/bin/sim.sh
-rm /usr/bin/sim_rb /usr/bin/sim_sh
-ln -s /usr/bin/sim_c /usr/bin/sim_cc
+
+cd /home/judge/src/core
+rm -rf /core
+judged
 echo "done!"

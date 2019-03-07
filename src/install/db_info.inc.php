@@ -6,7 +6,6 @@ session_set_cookie_params($lifeTime);
 ini_set("display_errors", "Off"); //set this to "On" for debugging  ,especially when no reason blank shows up.
 ini_set("session.cookie_httponly", 1);
 header('X-Frame-Options:SAMEORIGIN');
-
 //for people using hustoj out of China , be careful of the last two line of this file !
 
 // connect db
@@ -14,6 +13,8 @@ static $DB_HOST = "db";
 static $DB_NAME = "jol";
 static $DB_USER = "ahpuoj";
 static $DB_PASS = "jsj123zxc";
+
+static $OJ_LANGMASK = 130996; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 1008 for security reason to mask all other language
 
 static $OJ_NAME = "AHPUOJ";
 static $OJ_HOME = "./";
@@ -23,7 +24,6 @@ static $OJ_BBS = "discuss3"; //"bbs" for phpBB3 bridge or "discuss" for mini-for
 static $OJ_ONLINE = false;
 static $OJ_SIM = false;
 static $OJ_DICT = false;
-static $OJ_LANGMASK = 262064; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 1008 for security reason to mask all other language
 static $OJ_EDITE_AREA = true; //true: syntax highlighting is active
 static $OJ_ACE_EDITOR = true;
 static $OJ_AUTO_SHARE = false; //true: One can view all AC submit if he/she has ACed it onece.
@@ -44,7 +44,6 @@ static $SAE_STORAGE_ROOT = "http://hustoj-web.stor.sinaapp.com/";
 static $OJ_TEMPLATE = "ahpuoj"; //使用的默认模板
 
 static $OJ_LOGIN_MOD = "hustoj";
-static $OJ_REGISTER = true; //允许注册新用户
 static $OJ_REG_NEED_CONFIRM = false; //新注册用户需要审核
 static $OJ_NEED_LOGIN = false; //需要登录才能访问
 static $OJ_RANK_LOCK_PERCENT = 0; //比赛封榜时间比例
@@ -75,11 +74,10 @@ static $OJ_QQ_AKEY = '1124518951';
 static $OJ_QQ_ASEC = 'df709a1253ef8878548920718085e84b';
 static $OJ_QQ_CBURL = '192.168.0.108';
 
-require_once dirname(__FILE__) . "/pdo.php";
-
 if (isset($OJ_CSRF) && $OJ_CSRF && $OJ_TEMPLATE == "ahpuoj" && basename($_SERVER['PHP_SELF']) != "problem_judge") {
     require_once 'csrf_check.php';
 }
+require_once "/home/judge/src/web/include/pdo.php";
 
 //sychronize php and mysql server with timezone settings, dafault setting for China
 //if you are not from China, comment out these two lines or modify them.

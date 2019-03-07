@@ -181,6 +181,7 @@
   <script src='highlight/scripts/shBrushPerl.js' type='text/javascript'></script>
   <script src='highlight/scripts/shBrushCSharp.js' type='text/javascript'></script>
   <script src='highlight/scripts/shBrushVb.js' type='text/javascript'></script>
+  <script src='highlight/scripts/shBrushGo.js' type='text/javascript'></script>
 
   <script>
     $(document).ready(function () {

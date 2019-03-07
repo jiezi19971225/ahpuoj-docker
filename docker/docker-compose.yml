@@ -5,7 +5,6 @@ services:
     # image: ahpuoj
     build: ./ahpuoj
     tty: true
-    entrypoint: /usr/local/bin/docker-entrypoint.sh
     depends_on:
       - db
     ports:
@@ -13,14 +12,16 @@ services:
     expose:
       - "80"
     volumes: 
-      - /data
-      - ../src:/home/judge/src
+      - ${OJ_CODE_PATH_HOST}:${OJ_CODE_PATH_CONTAINER}${OJ_CODE_CONTAINER_FLAG}
+      - /home/judge/data
     links:
       - db
+    entrypoint: /usr/local/bin/docker-entrypoint.sh
     environment:
-      MYSQL_DATABASE: jol
-      MYSQL_USER: ahpuoj
-      MYSQL_PASSWORD: jsj123zxc
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    privileged: true
   db:
     image: mysql:5.7
     restart: always
@@ -29,7 +30,7 @@ services:
     volumes:
       - /var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: jol
-      MYSQL_USER: ahpuoj
-      MYSQL_PASSWORD: jsj123zxc
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
