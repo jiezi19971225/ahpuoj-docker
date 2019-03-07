@@ -4,7 +4,9 @@
 使用docker镜像方式安装，使用了docker-compose工具一键式部署，安装oj前请先安装以上工具
 ### 安装步骤
 克隆仓库到本地
-        git clone https://github.com/jiezi19971225/ahpuoj-docker.git 
+```
+git clone https://github.com/jiezi19971225/ahpuoj-docker.git 
+```
 切换目录
         cd ahpuoj-docker/docker
 构建镜像
