@@ -37,9 +37,9 @@ chgrp -R www-data /home/judge/src/install/judge.conf
 chgrp -R www-data /home/judge/src/install/java0.policy
 
 
-ln -s  /home/judge/src/install/db_info.inc.php /home/judge/src/web/include/db_info.inc.php
-ln -s  /home/judge/src/install/judge.conf /home/judge/etc/judge.conf
-ln -s  /home/judge/src/install/java0.policy /home/judge/etc/java0.policy
+cp  /home/judge/src/install/db_info.inc.php.example /home/judge/src/web/include/db_info.inc.php
+cp /home/judge/src/install/judge.conf.example /home/judge/etc/judge.conf
+cp  /home/judge/src/install/java0.policy.example /home/judge/etc/java0.policy
 
 if [ `grep -c "client_max_body_size"  /etc/nginx/nginx.conf;` -eq 0 ];then
 	sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    80m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf
