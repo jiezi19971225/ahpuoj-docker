@@ -33,13 +33,13 @@ chgrp -R www-data /home/judge/data
 chgrp -R www-data /home/judge/src/web/admin/config.txt
 chgrp -R www-data /home/judge/src/web/admin/msg.txt
 chgrp -R www-data /home/judge/src/web/upload
-chgrp -R www-data /home/judge/src/install/judge.conf
-chgrp -R www-data /home/judge/src/install/java0.policy
-
 
 cp  /home/judge/src/install/db_info.inc.php.example /home/judge/src/web/include/db_info.inc.php
 cp /home/judge/src/install/judge.conf.example /home/judge/etc/judge.conf
 cp  /home/judge/src/install/java0.policy.example /home/judge/etc/java0.policy
+
+chgrp -R www-data /home/judge/etc/judge.conf
+chgrp -R www-data /home/judge/etc/java0.policy
 
 if [ `grep -c "client_max_body_size"  /etc/nginx/nginx.conf;` -eq 0 ];then
 	sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    80m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf
@@ -55,11 +55,11 @@ sed -i "s/;extension=pdo_mysql/extension=pdo_mysql/g" /etc/php/7.2/fpm/php.ini
 sed -i "s/;extension=mbstring/extension=mbstring/g" /etc/php/7.2/fpm/php.ini
 sed -i "s/post_max_size = 8M/post_max_size = 80M/g" /etc/php/7.2/fpm/php.ini
 sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 80M/g" /etc/php/7.2/fpm/php.ini
-sed -i --follow-symlinks "s/OJ_RUNNING=1/OJ_RUNNING=$CPU/g" etc/judge.conf
-sed -i --follow-symlinks "s/OJ_USER_NAME=root/OJ_USER_NAME=$MYSQL_USER/g" etc/judge.conf
-sed -i --follow-symlinks "s/OJ_PASSWORD=root/OJ_PASSWORD=$MYSQL_PASSWORD/g" etc/judge.conf
-sed -i --follow-symlinks "s/DB_USER=\"root\"/DB_USER=\"$MYSQL_USER\"/g" src/web/include/db_info.inc.php
-sed -i --follow-symlinks "s/DB_PASS=\"root\"/DB_PASS=\"$MYSQL_PASSWORD\"/g" src/web/include/db_info.inc.php
+sed -i "s/OJ_RUNNING=1/OJ_RUNNING=$CPU/g" etc/judge.conf
+sed -i "s/OJ_USER_NAME=root/OJ_USER_NAME=$MYSQL_USER/g" etc/judge.conf
+sed -i "s/OJ_PASSWORD=root/OJ_PASSWORD=$MYSQL_PASSWORD/g" etc/judge.conf
+sed -i "s/DB_USER=\"root\"/DB_USER=\"$MYSQL_USER\"/g" src/web/include/db_info.inc.php
+sed -i "s/DB_PASS=\"root\"/DB_PASS=\"$MYSQL_PASSWORD\"/g" src/web/include/db_info.inc.php
 
 mysql -h db -u$MYSQL_USER -p$MYSQL_PASSWORD< /home/judge/src/install/jol.sql
 echo "insert into jol.privilege values('admin','administrator','N');"|mysql -h db -u$MYSQL_USER -p$MYSQL_PASSWORD
