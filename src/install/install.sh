@@ -66,7 +66,7 @@ echo "insert into jol.privilege values('admin','administrator','N');"|mysql -h d
 
 mkdir /logs
 echo /usr/lib/jvm/java-8-openjdk-amd64/lib/amd64/jli/ >> /etc/ld.so.conf
-idconfig
+ldconfig
 
 ln -s /usr/bin/python3.7 /usr/bin/python3
 
