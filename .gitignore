@@ -3,3 +3,4 @@ src/web/include/db_info.inc.php
 src/web/admin/config.txt
 src/web/admin/msg.txt
 docker/.env
+.vscode

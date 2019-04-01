@@ -1089,8 +1089,8 @@ void umount(char *work_dir)
 	execute_cmd("/bin/umount -f %s/etc/alternatives ", work_dir);
 	execute_cmd("/bin/umount -f %s/usr ", work_dir);
 	execute_cmd("/bin/umount -f %s/bin ", work_dir);
-	execute_cmd("/bin/umount -f %s/proc ", work_dir);
-	execute_cmd("/bin/umount -f bin usr lib lib64 etc/alternatives proc dev ");
+	// 在docker下不能umount /proc目录
+	execute_cmd("/bin/umount -f bin usr lib lib64 etc/alternatives dev ");
 	execute_cmd("/bin/umount -f %s/* ", work_dir);
 	execute_cmd("/bin/umount -f %s/log/* ", work_dir);
 	execute_cmd("/bin/umount -f %s/log/etc/alternatives ", work_dir);
@@ -1277,7 +1277,8 @@ int compile(int lang, char *work_dir)
 			status = get_file_size("ce.txt");
 		if (DEBUG)
 			printf("status=%d\n", status);
-		execute_cmd("/bin/umount -f bin usr lib lib64 etc/alternatives proc dev 2>&1 >/dev/null");
+		// docker中不能umount proc
+		execute_cmd("/bin/umount -f bin usr lib lib64 etc/alternatives dev 2>&1 >/dev/null");
 		execute_cmd("/bin/umount -f %s/* 2>&1 >/dev/null", work_dir);
 		umount(work_dir);
 
